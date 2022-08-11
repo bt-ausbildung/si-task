@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/si-task/static/css/main.20269092.css",
+    "main.js": "/si-task/static/js/main.ddc7d15a.js",
+    "index.html": "/si-task/index.html",
+    "main.20269092.css.map": "/si-task/static/css/main.20269092.css.map",
+    "main.ddc7d15a.js.map": "/si-task/static/js/main.ddc7d15a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.20269092.css",
+    "static/js/main.ddc7d15a.js"
+  ]
+}
