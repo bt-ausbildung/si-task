@@ -4,23 +4,31 @@ import "./Content.css";
 
 const Content = (props) => {
   const [postId, setPostId] = useState();
-  const [authorId, setAuthorId] = useState("");
+  const [authorId, setAuthorId] = useState(1);
   const [body, setBody] = useState(
     "To get more post-details click on the list items"
   );
   const [postTitle, setpostTitle] = useState("");
-  const [userValues, setUserValues] = useState("");
+  const [userValues, setUserValues] = useState([]);
+  const [selectedUser, setSelectedUser] = useState([]);
 
   useEffect(() => {
     getUserValues();
+    setSelectedUser(
+      userValues.filter((users) => {
+        return users.id == authorId;
+      })
+    )
   }, [postId]);
 
   const getUserValues = () => {
     // fetch user-data
-    fetch(`https://jsonplaceholder.typicode.com/users/${authorId}`)
+    fetch(`https://jsonplaceholder.typicode.com/users/`)
       .then((response) => response.json())
       .then((dataUser) => setUserValues(dataUser));
   };
+
+  
 
   return (
     <div className="content">
@@ -32,12 +40,16 @@ const Content = (props) => {
             </div>
             {body}
             <hr />
+            {selectedUser[0] ? <>
             <h5>
-              <b>{userValues.name}</b>
+              <b>{selectedUser[0].name}</b>
             </h5>
             <p>
-              <a href="#">{userValues.website}</a>
-            </p>
+              <a href="#">{selectedUser[0].website}</a>
+            </p></>
+            :
+            <></>  
+          }
           </div>
         </div>
       </div>
